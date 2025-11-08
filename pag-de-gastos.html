@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>App de gastos — Tabla</title>
+    <link rel="stylesheet" href="pag-de-gastos.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="view-title">Registro de gastos</h1>
+      <div style="margin:12px 0;display:flex;gap:8px;align-items:center">
+        <button id="tab-gastos" class="btn btn-primary">Tabla de gastos</button>
+        <button id="tab-registro" class="btn">Registro de precios/Tienda</button>
+        <button id="tab-tiendas" class="btn">Tiendas</button>
+      </div>
+
+      <p class="lead">Agrega artículos, precio y cantidad. Se guarda localmente.</p>
+
+      <div id="view-gastos">
+        <div class="table-wrap">
+          <table id="gastos-table" aria-label="Tabla de gastos">
+          <thead>
+            <tr>
+              <th>Artículo</th>
+              <th>Tienda</th>
+              <th>Precio unitario</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          </table>
+        </div>
+        <div style="margin-top:8px">
+          <button id="add-row" class="btn btn-primary">➕ Agregar fila</button>
+        </div>
+        <div style="margin-top:8px;text-align:right">Total general: <span id="grand-total">$0.00</span></div>
+      </div>
+
+      <div id="view-registro" style="display:none;margin-top:18px">
+        <h2>Registro de precios / Tienda</h2>
+        <div class="table-wrap">
+          <table id="registro-table"><thead><tr><th>Artículo</th><th>Tienda</th><th>Precio</th><th>Total</th><th>Acciones</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+          <button id="add-reg-row" class="btn btn-primary">➕ Agregar registro</button>
+          <button id="btn-save-reg" class="btn">Guardar registros</button>
+        </div>
+      </div>
+
+      <div id="view-tiendas" style="display:none;margin-top:18px">
+        <h2>Tiendas</h2>
+        <div id="tiendas-cards" class="cards-grid"></div>
+        <div id="tienda-detail" style="display:none;margin-top:12px">
+          <button id="tienda-back" class="btn">← Volver</button>
+          <h3 id="tienda-detail-name"></h3>
+          <div id="tienda-detail-list"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button id="btn-clear" class="btn btn-danger">Borrar datos</button>
+      </div>
+    </div>
+
+    <script src="pag-de-gastos.js"></script>
+  </body>
+</html>

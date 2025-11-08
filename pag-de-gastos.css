@@ -1,0 +1,56 @@
+:root{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+body{padding:20px;background:#f7fafc;color:#111;margin:0}
+.container{max-width:900px;margin:0 auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 6px 20px rgba(10,15,20,0.06)}
+h1{font-size:20px;margin:0 0 12px}
+p.lead{margin:0 0 18px;color:#555}
+table{width:100%;border-collapse:collapse;margin-bottom:12px}
+thead th{background:#f1f5f9;text-align:left;padding:10px;border-bottom:1px solid #e6edf3;font-weight:600}
+tbody td{padding:8px;border-bottom:1px dashed #e6edf3}
+input[type="text"], input[type="number"]{width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid #d1e3f0;border-radius:4px}
+input[type="number"]{text-align:right}
+.btn{display:inline-block;padding:8px 12px;border-radius:6px;border:0;cursor:pointer}
+.btn-primary{background:#0b74de;color:white}
+.btn-danger{background:#e53e3e;color:white}
+.right{text-align:right}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
+.store-card{background:#fff;border:1px solid #e6edf3;padding:12px;border-radius:8px;cursor:pointer}
+.best-price{background:linear-gradient(90deg,#e6fff1,#ffffff)}
+.higher-price{opacity:0.95}
+.price-diff{display:block;font-size:0.85rem;color:#c53030;margin-top:4px}
+/* Wrapper para tablas que permite scroll horizontal en pantallas pequeñas */
+.table-wrap{overflow:auto;-webkit-overflow-scrolling:touch;width:100%}
+
+@media (max-width:900px){
+	.container{padding:12px}
+	h1{font-size:18px}
+}
+
+@media (max-width:600px){
+    /* Ocultar columna "Total" para ganar espacio */
+    thead th:nth-child(5), tbody td:nth-child(5){display:none}
+    /* Botones más pequeños y en bloque si no caben */
+    .btn{padding:6px 8px;font-size:0.95rem}
+    /* Inputs y celdas ajustadas */
+    input[type="text"], input[type="number"]{padding:6px}
+    /* Forzar que las tablas puedan desplazarse horizontalmente */
+    .table-wrap{overflow:auto}
+    /* Hacer que las acciones se muestren en una columna compacta */
+	thead th:nth-child(6), tbody td:nth-child(6){min-width:90px}
+}
+
+/* Evitamos forzar un min-width que provoque overflow incómodo en móviles */
+table{min-width:0;table-layout:auto}
+
+/* En móviles limitamos los anchos de inputs que tienden a expandir la tabla */
+@media (max-width:600px){
+	/* Limitar inputs específicos y permitir que tomen su ancho natural */
+	input.price, input.qty{width:auto;max-width:110px}
+	input.qty{max-width:70px}
+
+	/* Evitar que celdas largas empujen el layout, excepto la columna de acciones */
+	tbody td:not(.actions){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+	/* Acciones: permitir overflow visible y apilar botones para mejor interacción */
+	tbody td.actions{white-space:normal;overflow:visible}
+	tbody td.actions .btn{display:block;width:100%;box-sizing:border-box;margin-bottom:6px}
+}
